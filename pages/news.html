@@ -4,67 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости - Семестровая работа</title>
+    <title>Новости</title>
     <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body>
     <div class="page-container">
-        <div class="header">Новости</div>
+        <header class="header">
+            <h1>Новости</h1>
+        </header>
         <nav class="nav">
             <ul class="nav-list">
-                <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
-                <li class="nav-item"><a href="news.html" class="nav-link">Новости</a></li>
-                <li class="nav-item"><a href="practices.html" class="nav-link">Практики</a></li>
-                <li class="nav-item"><a href="goods.html" class="nav-link">Товары</a></li>
-                <li class="nav-item"><a href="contacts.html" class="nav-link">Контакты</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-
-        <div class="content">
-            <div class="news-section">
-                <h2 class="section-title">Последние новости</h2>
-
-                <div class="news-card">
-                    <div class="news-header">
-                        <h3 class="news-title">О ком же они?</h3>
-                        <span class="news-date">16.10.2025</span>
-                        <span class="news-author">zhorik</span>
-                    </div>
-                    <p class="news-desc">Он сказал что swag season 3 скоро.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-header">
-                        <h3 class="news-title">Обновленный каталог товаров</h3>
-                        <span class="news-date">16.10.2025</span>
-                        <span class="news-author">zhorik</span>
-                    </div>
-                    <p class="news-desc">Он появился!</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-header">
-                        <h3 class="news-title">Следующее обновление скоро?</h3>
-                        <span class="news-date">16.10.2025</span>
-                        <span class="news-author">zhorik</span>
-                    </div>
-                    <p class="news-desc">Именно этим вопросом я задамся после контрольной на 7 недели.</p>
-                </div>
+        <main class="content">
+            <div class="news-container">
+                <article class="news-card">
+                    <h1 class="news-title">О ком же они?</h1>
+                    <p class="news-meta">16.10.2025 | zhorik</p>
+                    <p class="news-text">Он сказал что swag season 3 скоро.</p>
+                </article>
+                <article class="news-card">
+                    <h1 class="news-title">Обновленный каталог товаров</h1>
+                    <p class="news-meta">16.10.2025 | zhorik</p>
+                    <p class="news-text">Он появился!</p>
+                </article>
+                <article class="news-card">
+                    <h1 class="news-title">Следующее обновление скоро?</h1>
+                    <p class="news-meta">16.10.2025 | zhorik</p>
+                    <p class="news-text">Именно этим вопросом я задамся после контрольной на 7 недели.</p>
+                </article>
             </div>
-        </div>
-
-        <div class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p>Email: нит </p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2024 Семестровая работа. ЭФБО-05-24. Все права защищены.
-            </div>
-        </div>
+        </main>
+        <footer class="footer">
+            <p>© 2025. Все права защищены.</p>
+        </footer>
     </div>
 </body>
 

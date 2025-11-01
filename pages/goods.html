@@ -4,59 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары - Семестровая работа</title>
+    <title>Товары</title>
     <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body>
     <div class="page-container">
-        <div class="header">Товары</div>
+        <header class="header">
+            <h1>Товары</h1>
+        </header>
         <nav class="nav">
             <ul class="nav-list">
-                <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
-                <li class="nav-item"><a href="news.html" class="nav-link">Новости</a></li>
-                <li class="nav-item"><a href="practices.html" class="nav-link">Практики</a></li>
-                <li class="nav-item"><a href="goods.html" class="nav-link">Товары</a></li>
-                <li class="nav-item"><a href="contacts.html" class="nav-link">Контакты</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-
-        <div class="content">
-            <div class="goods-section">
-                <h2 class="section-title">Наши товары</h2>
-                <div class="goods-container">
-                    <div class="goods-card">
-                        <img src="../images/goods1.jpeg" alt="Русский рэп" class="goods-image">
-                        <h3 class="goods-name">Русский рэп</h3>
-                        <p class="goods-price">Бесплатно (тк сбайчено)</p>
-                    </div>
-
-                    <div class="goods-card">
-                        <img src="../images/goods2.jpg" alt="Западный рэп" class="goods-image">
-                        <h3 class="goods-name">Западный рэп</h3>
-                        <p class="goods-price">Бесценен (да хранит господь)</p>
-                    </div>
-
-                    <div class="goods-card">
-                        <img src="../images/goods3.avif" alt="Биточек" class="goods-image">
-                        <h3 class="goods-name">Биточек</h3>
-                        <p class="goods-price">299р</p>
-                    </div>
-                </div>
+        <main class="content">
+            <div class="products-container">
+                <article class="product-card">
+                    <img class="product-image" src="../images/goods1.jpeg" alt="Русский рэп">
+                    <h3 class="product-name">Русский рэп</h3>
+                    <p class="product-price">Бесплатно (тк сбайчено)</p>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="../images/goods2.jpg" alt="Западный рэп">
+                    <h3 class="product-name">Западный рэп</h3>
+                    <p class="product-price">Бесценен (да хранит господь)</p>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="../images/goods3.avif" alt="Биточек">
+                    <h3 class="product-name">Биточек</h3>
+                    <p class="product-price">299р</p>
+                </article>
             </div>
-        </div>
-
-        <div class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p>Email: не буду</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2024 Семестровая работа. ЭФБО-05-24. Все права защищены.
-            </div>
-        </div>
+        </main>
+        <footer class="footer">
+            <p>© 2025. Все права защищены.</p>
+        </footer>
     </div>
 </body>
 

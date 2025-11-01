@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    background: linear-gradient(135deg, #1a5f7f 0%, #2d8f6a 100%);
     min-height: 100vh;
 }
 
@@ -14,34 +14,32 @@ body {
     background: white;
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
 }
 
 /* ===== ШАПКА ===== */
 .header {
-    background: linear-gradient(135deg, #16a085 0%, #27ae60 100%);
+    background: linear-gradient(135deg, #1a5f7f 0%, #2d8f6a 100%);
     color: white;
     text-align: center;
-    padding: 40px 30px;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.header::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.5);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    padding: 30px;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    grid-area: header;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
-    background: #2c3e50;
+    background: #1a5f7f;
     padding: 20px 0;
+    grid-area: nav;
 }
 
 .nav-list {
@@ -67,7 +65,7 @@ body {
 }
 
 .nav-link:hover {
-    background: rgba(39, 174, 96, 0.3);
+    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
 }
 
@@ -76,15 +74,7 @@ body {
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
-}
-
-/* ===== ОБЩИЕ СТИЛИ СЕКЦИЙ ===== */
-.section-title {
-    font-size: 28px;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: 300;
+    grid-area: main;
 }
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
@@ -95,7 +85,7 @@ body {
 
 .profile-title {
     font-size: 32px;
-    color: #2c3e50;
+    color: #1a5f7f;
     margin-bottom: 10px;
     font-weight: 300;
 }
@@ -106,13 +96,13 @@ body {
     border-radius: 15px;
     object-fit: cover;
     margin: 20px auto;
-    border: 4px solid #27ae60;
-    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+    border: 4px solid #2d8f6a;
+    box-shadow: 0 8px 25px rgba(45, 143, 106, 0.3);
 }
 
 .profile-name {
     font-size: 24px;
-    color: #2c3e50;
+    color: #1a5f7f;
     margin: 10px 0;
     font-weight: 500;
 }
@@ -128,34 +118,50 @@ body {
     padding: 25px;
     border-radius: 15px;
     margin: 30px 0;
-    border-left: 5px solid #27ae60;
+    border-left: 5px solid #2d8f6a;
     font-size: 16px;
     line-height: 1.8;
 }
 
+.about-me h2 {
+    color: #1a5f7f;
+    margin-top: 0;
+    font-weight: 600;
+}
+
 /* ===== НАВЫКИ ===== */
 .skills-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
     margin: 30px 0;
 }
 
+.skills-container h2 {
+    color: #1a5f7f;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
 .skill-tag {
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    background: linear-gradient(135deg, #1a5f7f 0%, #2d8f6a 100%);
     color: white;
     padding: 12px 25px;
     border-radius: 25px;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    box-shadow: 0 4px 15px rgba(26, 95, 127, 0.3);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .skill-tag:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    box-shadow: 0 6px 20px rgba(26, 95, 127, 0.4);
 }
 
 /* ===== ОПЫТ РАБОТЫ ===== */
@@ -163,13 +169,26 @@ body {
     margin-top: 50px;
 }
 
+.section-title {
+    font-size: 28px;
+    color: #1a5f7f;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 .experience-card {
     background: white;
     padding: 25px;
-    margin: 20px 0;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #27ae60;
+    border-left: 4px solid #2d8f6a;
     transition: transform 0.3s ease;
 }
 
@@ -179,7 +198,7 @@ body {
 
 .experience-title {
     font-size: 20px;
-    color: #2c3e50;
+    color: #1a5f7f;
     margin: 0 0 10px 0;
     font-weight: 600;
 }
@@ -190,213 +209,141 @@ body {
     margin: 0;
 }
 
-/* ===== СТРАНИЦА НОВОСТЕЙ ===== */
-.news-section {
-    margin-top: 30px;
+/* ===== НОВОСТИ ===== */
+.news-container {
+    display: grid;
+    gap: 25px;
 }
 
 .news-card {
     background: white;
     padding: 30px;
-    margin: 25px 0;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #16a085;
-    transition: all 0.3s ease;
-}
-
-.news-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(22, 160, 133, 0.2);
-}
-
-.news-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    border-left: 4px solid #2d8f6a;
 }
 
 .news-title {
-    font-size: 22px;
-    color: #2c3e50;
-    margin: 0;
+    font-size: 24px;
+    color: #1a5f7f;
+    margin: 0 0 10px 0;
     font-weight: 600;
 }
 
-.news-date {
-    background: #27ae60;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.news-author {
-    color: #7f8c8d;
+.news-meta {
+    color: #95a5a6;
     font-size: 14px;
-    font-style: italic;
+    margin: 0 0 15px 0;
 }
 
-.news-desc {
-    color: #7f8c8d;
-    font-size: 16px;
-    line-height: 1.6;
+.news-text {
+    color: #34495e;
+    line-height: 1.7;
     margin: 0;
 }
 
-/* ===== СТРАНИЦА ТОВАРОВ ===== */
-.goods-section {
-    margin-top: 30px;
-}
-
-.goods-container {
+/* ===== ТОВАРЫ ===== */
+.products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
 
-.goods-card {
+.product-card {
     background: white;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-top: 4px solid #1a5f7f;
 }
 
-.goods-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(39, 174, 96, 0.2);
-    border-color: #27ae60;
+.product-card:hover {
+    transform: translateY(-5px);
 }
 
-.goods-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.product-image {
+    width: 200px;
+    height: 250px;
     border-radius: 10px;
-    margin-bottom: 15px;
-    border: 3px solid #27ae60;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #f8f9fa;
 }
 
-.goods-name {
-    font-size: 20px;
-    color: #2c3e50;
+.product-name {
+    font-size: 18px;
+    color: #1a5f7f;
+    margin: 10px 0;
     font-weight: 600;
-    margin: 10px 0;
 }
 
-.goods-price {
-    font-size: 22px;
-    color: #27ae60;
+.product-price {
+    font-size: 20px;
+    color: #2d8f6a;
     font-weight: 700;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
-/* ===== СТРАНИЦА КОНТАКТОВ ===== */
-.contacts-section {
-    margin-top: 30px;
+/* ===== КОНТАКТЫ ===== */
+.contacts-container {
+    text-align: center;
 }
 
 .contact-card {
-    background: white;
-    padding: 30px;
-    margin: 25px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    margin: 20px 0;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #2ecc71;
-    transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.2);
-}
-
-.contact-title {
-    font-size: 22px;
-    color: #2c3e50;
-    margin: 0 0 15px 0;
-    font-weight: 600;
-}
-
-.contact-info {
-    color: #7f8c8d;
     font-size: 18px;
-    line-height: 1.6;
-    margin: 0 0 20px 0;
+    color: #1a5f7f;
+    border-left: 4px solid #2d8f6a;
 }
 
-.call-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+.contact-button {
+    background: linear-gradient(135deg, #1a5f7f 0%, #2d8f6a 100%);
     color: white;
-    text-decoration: none;
-    padding: 15px 30px;
-    border-radius: 25px;
+    border: none;
+    padding: 15px 40px;
     font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-    border: none;
-    cursor: pointer;
 }
 
-.call-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
-    color: white;
-    text-decoration: none;
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 95, 127, 0.4);
 }
 
 /* ===== ФУТЕР ===== */
 .footer {
-    background: linear-gradient(135deg, #16a085 0%, #27ae60 100%);
+    background: linear-gradient(135deg, #1a5f7f 0%, #2d8f6a 100%);
     color: white;
     text-align: center;
-    padding: 40px 30px;
-    margin-top: 60px;
+    padding: 30px;
+    margin-top: 50px;
+    grid-area: footer;
 }
 
-.footer-content {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.footer-section h3 {
-    color: white;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 600;
-}
+    .content {
+        padding: 20px;
+    }
 
-.footer-section p,
-.footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    line-height: 1.6;
-    margin: 8px 0;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
+    .skills-grid,
+    .experience-grid,
+    .products-container {
+        grid-template-columns: 1fr;
+    }
 }
