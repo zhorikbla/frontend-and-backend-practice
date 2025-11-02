@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="page-container">
+        <!-- Header -->
+        <header class="bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="h3 mb-1">Товары</h1>
+                        <p class="mb-0 opacity-75">Лучшие предложения</p>
+                    </div>
+                    <div class="col-auto">
+                        <span class="badge bg-light text-primary">Новинки</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index_v1.html">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news copy.html">
+                                <i class="bi bi-newspaper me-1"></i>Новости
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="goods_v1.html">
+                                <i class="bi bi-cart me-1"></i>Товары
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts copy.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content py-4">
+            <div class="container">
+                <!-- Products Section -->
+                <section class="mb-5">
+                    <div class="row g-4">
+                        <!-- Product 1 -->
+                        <div class="col-md-4">
+                            <div class="product-card card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="../images/goods1.jpeg" class="card-img-top product-image"
+                                        alt="Русский рэп">
+                                    <span
+                                        class="position-absolute top-0 start-0 bg-success text-white px-2 py-1 m-2 rounded">
+                                        <i class="bi bi-tag-fill me-1"></i>Бесплатно
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">Русский рэп</h5>
+                                    <p class="card-text text-muted mb-3 flex-grow-1">
+                                        Качественный русский рэп для настоящих ценителей. Лучшие треки от топовых
+                                        исполнителей.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-success fw-bold fs-5">Бесплатно</span>
+                                            <small class="text-muted">(тк сбайчено)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="col-md-4">
+                            <div class="product-card card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="../images/goods2.jpg" class="card-img-top product-image"
+                                        alt="Западный рэп">
+                                    <span
+                                        class="position-absolute top-0 start-0 bg-warning text-dark px-2 py-1 m-2 rounded">
+                                        <i class="bi bi-star-fill me-1"></i>Премиум
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">Западный рэп</h5>
+                                    <p class="card-text text-muted mb-3 flex-grow-1">
+                                        Лучший западный рэп от мировых исполнителей. Эксклюзивные релизы и классика
+                                        жанра.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-warning fw-bold fs-5">Бесценен</span>
+                                            <small class="text-muted">(да хранит господь)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="col-md-4">
+                            <div class="product-card card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="../images/goods3.avif" class="card-img-top product-image" alt="Биточек">
+                                    <span
+                                        class="position-absolute top-0 start-0 bg-info text-white px-2 py-1 m-2 rounded">
+                                        <i class="bi bi-music-note-beamed me-1"></i>Бит
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">Биточек</h5>
+                                    <p class="card-text text-muted mb-3 flex-grow-1">
+                                        Качественный бит для вашего творчества. Уникальное звучание и профессиональный
+                                        микс.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-danger fw-bold fs-5">299₽</span>
+                                            <small class="text-muted">за трек</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Info -->
+                <section class="mb-5">
+                    <div class="card border-0 shadow-sm bg-primary text-white">
+                        <div class="card-body text-center py-4">
+                            <h3 class="card-title mb-3">
+                                <i class="bi bi-music-note-beamed me-2"></i>Музыка для настоящих ценителей
+                            </h3>
+                            <p class="card-text mb-0 opacity-75">
+                                Мы предлагаем только лучшее качество звука и уникальный контент для истинных любителей
+                                музыки.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4 mt-auto">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2025. Все права защищены.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="contacts.html" class="text-white text-decoration-none me-3">
+                            <i class="bi bi-telephone me-1"></i>Контакты
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
