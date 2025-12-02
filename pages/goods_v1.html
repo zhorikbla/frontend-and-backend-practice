@@ -44,6 +44,63 @@
             display: flex;
             flex-direction: column;
         }
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+    border: 2px solid transparent !important;
+}
+
+.product-card {
+    border-color: #dee2e6 !important;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+    border-color: #0d6efd !important;
+}
+
+.product-card:focus {
+    outline: 3px solid #fd7e14 !important;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(253, 126, 20, 0.25) !important;
+}
+
+.product-card:active {
+    transform: translateY(-4px) scale(0.98) !important;
+    border-color: #198754 !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+body.dark .card {
+    background-color: #242424 !important;
+    color: #f1f1f1 !important;
+    border-color: #444 !important;
+}
+
+body.dark .bg-primary {
+    background-color: #0a58ca !important;
+}
+
+body.dark .bg-dark {
+    background-color: #000 !important;
+}
     </style>
 </head>
 
@@ -93,6 +150,11 @@
                 </div>
             </div>
         </nav>
+<button id="theme-toggle" class="btn btn-outline-light position-fixed" 
+        style="top: 20px; right: 20px; z-index: 1000; width: 50px; height: 50px;"
+        aria-label="Переключить тему">
+    <i class="bi bi-moon"></i>
+</button>
         <main class="main-content py-4">
             <div class="container">
                 <section class="mb-5">
@@ -192,6 +254,156 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+
+    function applyDarkTheme() {
+        body.classList.add('dark');
+        themeIcon.className = 'bi bi-sun';
+        const style = document.createElement('style');
+        style.id = 'dark-theme-styles-goods';
+        style.textContent = `
+            body.dark {
+                background-color: #121212 !important;
+                color: #f1f1f1 !important;
+            }
+            
+            body.dark .bg-light {
+                background-color: #1e1e1e !important;
+                color: #f1f1f1 !important;
+            }
+            
+            body.dark .card {
+                background-color: #242424 !important;
+                color: #f1f1f1 !important;
+                border-color: #444 !important;
+            }
+            
+            body.dark .bg-primary {
+                background-color: #0a58ca !important;
+            }
+            
+            body.dark .bg-dark {
+                background-color: #000 !important;
+            }
+            
+            body.dark .text-primary {
+                color: #6ea8fe !important;
+            }
+            
+            body.dark .text-muted {
+                color: #a0aec0 !important;
+            }
+            
+            body.dark .text-white {
+                color: #f1f1f1 !important;
+            }
+            
+            body.dark .text-success {
+                color: #75b798 !important;
+            }
+            
+            body.dark .text-warning {
+                color: #ffd666 !important;
+            }
+            
+            body.dark .text-danger {
+                color: #f8a5a5 !important;
+            }
+            
+            body.dark .text-info {
+                color: #81e6d9 !important;
+            }
+            
+            body.dark .bg-success {
+                background-color: #198754 !important;
+            }
+            
+            body.dark .bg-warning {
+                background-color: #ffc107 !important;
+                color: #000 !important;
+            }
+            
+            body.dark .bg-info {
+                background-color: #0dcaf0 !important;
+            }
+            
+            body.dark .navbar-dark {
+                background-color: #000 !important;
+            }
+            
+            body.dark .badge {
+                color: #000 !important;
+            }
+            
+            body.dark .badge.bg-light {
+                background-color: #e2e8f0 !important;
+            }
+            
+            body.dark .product-card {
+                background-color: #242424 !important;
+                border-color: #444 !important;
+            }
+            
+            body.dark .product-card .card-title,
+            body.dark .product-card .card-text {
+                color: #f1f1f1 !important;
+            }
+        `;
+
+        const oldStyle = document.getElementById('dark-theme-styles-goods');
+        if (oldStyle) {
+            oldStyle.remove();
+        }
+        
+        document.head.appendChild(style);
+    }
+    function removeDarkTheme() {
+        body.classList.remove('dark');
+        themeIcon.className = 'bi bi-moon';
+        const darkStyle = document.getElementById('dark-theme-styles-goods');
+        if (darkStyle) {
+            darkStyle.remove();
+        }
+    }
+    if (savedTheme === 'dark') {
+        applyDarkTheme();
+    }
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark')) {
+            removeDarkTheme();
+            localStorage.setItem('theme', 'light');
+        } else {
+            applyDarkTheme();
+            localStorage.setItem('theme', 'dark');
+        }
+        updateAllPages();
+    });
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (!savedTheme && prefersDarkScheme.matches) {
+        applyDarkTheme();
+        localStorage.setItem('theme', 'dark');
+    }
+    function updateAllPages() {
+        const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+    }
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'theme') {
+            if (e.newValue === 'dark') {
+                applyDarkTheme();
+            } else {
+                removeDarkTheme();
+            }
+        }
+    });
+</script>
 </body>
 
 </html>

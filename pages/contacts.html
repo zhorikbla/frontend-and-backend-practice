@@ -106,47 +106,65 @@
                 </form>
             </div>
         </dialog>
-        <script>
-            // Функция для отправки формы
-            function submitForm() {
-                const form = document.getElementById('feedbackForm');
-                const formData = new FormData(form);
+       <script>
+    const contactModal = document.getElementById('contactModal');
+    const cancelButton = document.querySelector('button[type="submit"].btn-secondary');
+    
+   
+    function closeModal() {
+        contactModal.close();
+        document.getElementById('feedbackForm').reset();
+    }
+    
+    
+    function submitForm() {
+        const form = document.getElementById('feedbackForm');
+        const formData = new FormData(form);
 
-                if (!form.checkValidity()) {
-                    form.reportValidity();
-                    return;
-                }
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 
-                const data = {
-                    name: formData.get('name'),
-                    phone: formData.get('phone'),
-                    email: formData.get('email'),
-                    category: formData.get('category'),
-                    message: formData.get('message')
-                };
+        const data = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            category: formData.get('category'),
+            message: formData.get('message')
+        };
 
-                console.log('Данные формы:', data);
-
-                alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
-
-                contactModal.close();
-                // Очищаем форму
-                form.reset();
+        console.log('Данные формы:', data);
+        alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+        
+        closeModal();
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        if (cancelButton) {
+            cancelButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeModal();
+            });
+        }
+        
+        
+        contactModal.addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
             }
-
-            document.getElementById('contactModal').addEventListener('click',
-                function (event) {
-                    if (event.target === this) {
-                        this.close();
-                    }
-                });
-            document.getElementById('feedbackForm').addEventListener('keypress',
-                function (event) {
-                    if (event.key === 'Enter' && event.target.type !== 'textarea') {
-                        event.preventDefault();
-                    }
-                });
-        </script>
+        });
+        
+        
+        document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                event.preventDefault();
+            }
+        });
+    });
+</script>
     </div>
 </body>
 

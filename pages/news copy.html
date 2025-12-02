@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+    <span class="theme-icon">🌙</span>
+</button>
     <div class="page">
         <header class="header">
             <h1 class="header__title">Новости</h1>
@@ -23,6 +26,8 @@
                 <li class="nav__item"><a class="nav__link" href="contacts copy.html">Контакты</a></li>
             </ul>
         </nav>
+         
+
 
         <main class="main">
             <section class="news">
@@ -54,6 +59,37 @@
             <p class="footer__text">&copy; 2024 Новостной портал. Все права защищены.</p>
         </footer>
     </div>
+    <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeIcon.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+            themeIcon.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeIcon.textContent = '🌙';
+        }
+    });
+
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (!savedTheme && prefersDarkScheme.matches) {
+        body.classList.add('dark');
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+</script>
 </body>
 
 </html>
